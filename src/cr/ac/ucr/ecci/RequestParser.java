@@ -8,8 +8,8 @@ public class RequestParser {
     public static Request parseRequest(String requestString) {
         String[] requestLines = requestString.split("\n");
         String methodType = requestLines[0].split(" ")[0];
-        //Request request = new Request(methodType, );
-        Request request = null;
+        String[] headers = getHeaders(requestLines);
+        Request request = new Request(methodType, headers[0], headers[1], headers[2], headers[3], headers[4], headers[5]);
         return request;
     }
 
