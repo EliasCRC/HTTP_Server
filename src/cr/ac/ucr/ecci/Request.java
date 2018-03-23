@@ -6,10 +6,10 @@ public class Request {
     String accept;
     String date;
     String contentType;
-    String contentLength;
+    int contentLength;
     String referer;
 
-    public Request(String methodType, String host, String accept, String date, String contentType, String contentLength, String referer) {
+    public Request(String methodType, String host, String accept, String date, String contentType, int contentLength, String referer) {
         this.methodType = methodType;
         this.host = host;
         this.accept = accept;
