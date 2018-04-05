@@ -22,18 +22,33 @@ public class HTTP_Connection extends Thread {
         this.in = new DataInputStream(clientSocket.getInputStream());
         this.out = new PrintWriter(this.clientSocket.getOutputStream(), true);
 
-        String httpRequestString = "";
+        StringBuilder httpRequestString = new StringBuilder();
         byte receivedByte;
         while ((receivedByte = in.readByte()) >= 0) {
-            httpRequestString += (char)receivedByte;
-            System.out.println(httpRequestString);
-            System.out.println((char)receivedByte);
-            System.out.println("Picha se mama");
-        }
-        System.out.println(httpRequestString);
+            httpRequestString.append((char) receivedByte);
+            if (this.checkCompleteMsg(httpRequestString.toString())) {
+                break;
+            }
 
+        }
+
+        System.out.println(httpRequestString);
         out.println("Picha se mama");
 
+    }
+
+    private boolean checkCompleteMsg(String msg) {
+        if (msg.contains("POST")) {
+            // Seek Content Length
+
+
+            // If it has get to the \r\n\r\n
+
+            // See if all content was sent
+            return false;
+        } else {
+            return msg.contains("\r\n\r\n");
+        }
     }
 
     synchronized void kill() {
@@ -72,7 +87,6 @@ public class HTTP_Connection extends Thread {
         }
 
         this.kill();
-
     }
 
 
