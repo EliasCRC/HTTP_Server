@@ -9,7 +9,7 @@ public class HTTP_Connection extends Thread {
     public boolean closed;
     private Socket clientSocket;
 
-    private DataInputStream in;
+    private InputStream in;
     private PrintWriter out;
 
     public HTTP_Connection (HTTP_Server httpServer, Socket clientSocket) {
@@ -19,36 +19,28 @@ public class HTTP_Connection extends Thread {
 
     private void listenMessages() throws IOException {
 
-        this.in = new DataInputStream(clientSocket.getInputStream());
+        // Get the readers
+        this.in = this.clientSocket.getInputStream();
         this.out = new PrintWriter(this.clientSocket.getOutputStream(), true);
+        InputStreamReader isReader = new InputStreamReader(this.in);
+        BufferedReader br = new BufferedReader(isReader);
 
+        //code to read and print headers
         StringBuilder httpRequestString = new StringBuilder();
-        byte receivedByte;
-        while ((receivedByte = in.readByte()) >= 0) {
-            httpRequestString.append((char) receivedByte);
-            if (this.checkCompleteMsg(httpRequestString.toString())) {
-                break;
-            }
+        String headerLine;
+        while((headerLine = br.readLine()).length() != 0){
+            httpRequestString.append(headerLine).append("\n");
+        }
 
+        //code to read the post payload data
+        while(br.ready()){
+            httpRequestString.append((char) br.read());
         }
 
         System.out.println(httpRequestString);
-        out.println("Picha se mama");
 
-    }
+        this.out.println("Recibido.");
 
-    private boolean checkCompleteMsg(String msg) {
-        if (msg.contains("POST")) {
-            // Seek Content Length
-
-
-            // If it has get to the \r\n\r\n
-
-            // See if all content was sent
-            return false;
-        } else {
-            return msg.contains("\r\n\r\n");
-        }
     }
 
     synchronized void kill() {
