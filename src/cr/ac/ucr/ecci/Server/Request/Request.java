@@ -1,4 +1,4 @@
-package cr.ac.ucr.ecci;
+package cr.ac.ucr.ecci.Server.Request;
 
 public class Request {
     String methodType;

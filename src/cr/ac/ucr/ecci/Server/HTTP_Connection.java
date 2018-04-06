@@ -1,4 +1,7 @@
-package cr.ac.ucr.ecci;
+package cr.ac.ucr.ecci.Server;
+
+import cr.ac.ucr.ecci.Server.Request.Request;
+import cr.ac.ucr.ecci.Server.Request.RequestParser;
 
 import java.io.*;
 import java.net.Socket;
@@ -38,9 +41,28 @@ public class HTTP_Connection extends Thread {
         }
 
         System.out.println(httpRequestString);
+        String response = this.handleRequest(httpRequestString.toString());
 
-        this.out.println("Recibido.");
+        this.out.println(response);
 
+    }
+
+    private String handleRequest(String request) {
+        Request httpRequest = RequestParser.parseRequest(request);
+
+        // TODO Hablar con Daniel cómo determinar el 501
+
+
+        // Error 404
+
+
+        if (httpRequest.methodType.equals("POST")) {
+            //Generate POST 200 OK
+        } else {
+
+        }
+
+        return null;
     }
 
     synchronized void kill() {

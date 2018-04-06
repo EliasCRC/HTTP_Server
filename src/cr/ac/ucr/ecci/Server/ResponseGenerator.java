@@ -1,4 +1,4 @@
-package cr.ac.ucr.ecci;
+package cr.ac.ucr.ecci.Server;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
