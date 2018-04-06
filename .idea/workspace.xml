@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8983484b-2336-480a-b5cd-84a2730d02dc" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Main.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Output/FileLoader.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Output/Logger.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTTP_Server/cr/ac/ucr/ecci/HTTP_Connection.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTTP_Server/cr/ac/ucr/ecci/HTTP_Server.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTTP_Server/cr/ac/ucr/ecci/HTTP_ServerController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/EchoServer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/HTTP_Connection.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Connection.java" />
-      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/HTTP_Server.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Server.java" />
-      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/HTTP_ServerController.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_ServerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/MimeTypeMapper.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/MimeTypeMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Request.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/Request.java" />
-      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/RequestParser.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/RequestParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/ResponseGenerator.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/ResponseGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Main.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Connection.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Connection.java" />
+      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Server.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Server.java" />
+      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_ServerController.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_ServerController.java" />
+      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Output/FileLoader.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Output/FileLoader.java" />
+      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/Request.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/Request.java" />
+      <change beforePath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/ResponseGenerator.java" afterPath="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/ResponseGenerator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +20,51 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="HTTP_Connection.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Connection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HTTP_Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding>
+                <element signature="e#1044#1045#0" expanded="true" />
+                <element signature="e#1071#1072#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Request.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/Request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResponseGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/ResponseGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -67,8 +104,14 @@
         <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/HTTP_Connection.java" />
         <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/ResponseGenerator.java" />
         <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/ResponseGenerator.java" />
-        <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/ResponseGenerator.java" />
         <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/RequestParser.java" />
+        <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/Request.java" />
+        <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/ResponseGenerator.java" />
+        <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_ServerController.java" />
+        <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Main.java" />
+        <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Server.java" />
+        <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Output/FileLoader.java" />
+        <option value="$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Connection.java" />
       </list>
     </option>
   </component>
@@ -100,6 +143,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,9 +191,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -176,7 +219,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="cr.ac.ucr.ecci.Server.Request.HTTP_ServerController" />
+      <option name="MAIN_CLASS_NAME" value="cr.ac.ucr.ecci.Main" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="90" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -232,7 +275,8 @@
       <workItem from="1522945405060" duration="1053000" />
       <workItem from="1522984021831" duration="3654000" />
       <workItem from="1522990657537" duration="372000" />
-      <workItem from="1522991071263" duration="12000" />
+      <workItem from="1522991071263" duration="686000" />
+      <workItem from="1523047205437" duration="3165000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1521677523947</created>
@@ -269,28 +313,37 @@
       <option name="project" value="LOCAL" />
       <updated>1522985487914</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Packaging of the classes">
+      <created>1522991158719</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1522991158719</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16551000" />
+    <option name="totallyTimeSpent" value="20390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287037" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2806354" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28517398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -303,7 +356,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -319,7 +371,8 @@
     <MESSAGE value="Receive GET and POST msg" />
     <MESSAGE value="Now receives POST msg" />
     <MESSAGE value="Comment fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comment fixes" />
+    <MESSAGE value="Packaging of the classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Packaging of the classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -359,42 +412,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/EchoServer.java" />
-    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_ServerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/MimeTypeMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -407,14 +428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Output/FileLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Output/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -423,18 +436,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/ResponseGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="136">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="238">
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Request/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#1044#1045#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/ResponseGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/Output/FileLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding>
+            <element signature="e#117#118#0" expanded="true" />
+            <element signature="e#144#145#0" expanded="true" />
+            <element signature="e#206#207#0" expanded="true" />
+            <element signature="e#233#234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cr/ac/ucr/ecci/Server/HTTP_Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>

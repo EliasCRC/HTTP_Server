@@ -37,6 +37,10 @@ public class HTTP_Server extends Thread {
 
     }
 
+    public String getMimeTypeExt(String mimeType) {
+        return null;
+    }
+
     synchronized void kill() {
 
         for (HTTP_Connection connection : this.serverConnections) {

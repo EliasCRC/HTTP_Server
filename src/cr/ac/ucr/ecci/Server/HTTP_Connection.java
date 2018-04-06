@@ -1,5 +1,6 @@
 package cr.ac.ucr.ecci.Server;
 
+import cr.ac.ucr.ecci.Server.Output.FileLoader;
 import cr.ac.ucr.ecci.Server.Request.Request;
 import cr.ac.ucr.ecci.Server.Request.RequestParser;
 
@@ -41,6 +42,7 @@ public class HTTP_Connection extends Thread {
         }
 
         System.out.println(httpRequestString);
+
         String response = this.handleRequest(httpRequestString.toString());
 
         this.out.println(response);
@@ -48,21 +50,48 @@ public class HTTP_Connection extends Thread {
     }
 
     private String handleRequest(String request) {
+        final String POST = "POST";
+        final String GET = "GET";
+        final String HEAD = "HEAD";
+        String response = "";
+        byte[] file = null;
+
         Request httpRequest = RequestParser.parseRequest(request);
 
-        // TODO Hablar con Daniel cómo determinar el 501
+        if (httpRequest.methodType.equals(POST) || httpRequest.methodType.equals(GET)
+                || httpRequest.methodType.equals(HEAD)) {
 
+            //file = FileLoader.getFile(httpRequest.requestedResource);
+            if (file == null) {
+                response = ResponseGenerator.generate404();
+            } else {
 
-        // Error 404
+                if (httpRequest.methodType.equals(POST)) {
+                    //response = ResponseGenerator.generate200();
+                } else {
 
+                    String fileExtension = ".exe"; //FileLoader.getFileExtension(httpRequest.requestedResource);
+                    String mimeTypeExtension = httpServer.getMimeTypeExt(httpRequest.contentType);
+                    if(mimeTypeExtension != null && mimeTypeExtension.equals(fileExtension)) {
 
-        if (httpRequest.methodType.equals("POST")) {
-            //Generate POST 200 OK
+                        if (httpRequest.methodType.equals(HEAD)) {
+                            //response = ResponseGenerator.generate200HEAD();
+                        } else {
+                            //response = ResponseGenerator.generate200();
+                        }
+
+                    } else {
+                        //response = ResponseGenerator.generate406();
+                    }
+
+                }
+
+            }
         } else {
-
+            //response = ResponseGenerator.generate501();
         }
 
-        return null;
+        return response;
     }
 
     synchronized void kill() {

@@ -1,13 +1,13 @@
 package cr.ac.ucr.ecci.Server.Request;
 
 public class Request {
-    String methodType;
-    String host;
-    String accept;
-    String date;
-    String contentType;
-    int contentLength;
-    String referer;
+    public String methodType;
+    public String host;
+    public String accept;
+    public String date;
+    public String contentType;
+    public int contentLength;
+    public String referer;
 
     public Request(String methodType, String host, String accept, String date, String contentType, int contentLength, String referer) {
         this.methodType = methodType;
