@@ -25,14 +25,14 @@ public class HTTP_Connection extends Thread {
         InputStreamReader isReader = new InputStreamReader(this.in);
         BufferedReader br = new BufferedReader(isReader);
 
-        //code to read and print headers
+        //Read the headers of the request
         StringBuilder httpRequestString = new StringBuilder();
         String headerLine;
         while((headerLine = br.readLine()).length() != 0){
             httpRequestString.append(headerLine).append("\n");
         }
 
-        //code to read the post payload data
+        //Read the body of the request, if any
         while(br.ready()){
             httpRequestString.append((char) br.read());
         }
