@@ -6,7 +6,7 @@ public class RequestParser {
     public static Request parseRequest(String requestString) {
         String[] requestLines = requestString.split("\n");
         String methodType = requestLines[0].split(" ")[0];
-        String requestedResource = requestedResource = requestLines[0].split(" ")[1];
+        String requestedResource = requestLines[0].split(" ")[1];
         String[] headers = getHeaders(requestLines);
         return new Request(methodType, headers[0], headers[1], headers[2], headers[3], Integer.parseInt(headers[4]), headers[5], requestedResource);
     }
