@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class HTTP_ServerController {
 
-    public static void main(String[] args) {
+    public void run() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the port: ");
         int port = scanner.nextInt();

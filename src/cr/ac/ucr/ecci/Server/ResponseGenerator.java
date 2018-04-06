@@ -14,7 +14,6 @@ public class ResponseGenerator {
         response += "<html><head><title>Prueba</title></head><body>404</body></html>\n";
         return response;
     }
-
     public static String generate200(byte[] content) {
         return "200";
     }
@@ -30,7 +29,7 @@ public class ResponseGenerator {
     public static String generate406() {
         return "406";
     }
-
+  
     private static String generateDate() {
         DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
         Date date = new Date();
