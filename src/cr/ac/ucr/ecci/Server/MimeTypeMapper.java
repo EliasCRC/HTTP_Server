@@ -1,4 +1,4 @@
-package cr.ac.ucr.ecci;
+package cr.ac.ucr.ecci.Server;
 
 
 import org.w3c.dom.Document;
