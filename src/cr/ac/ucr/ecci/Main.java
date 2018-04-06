@@ -1,7 +1,6 @@
 package cr.ac.ucr.ecci;
 
-import cr.ac.ucr.ecci.Server.Request.Request;
-import cr.ac.ucr.ecci.Server.Request.RequestParser;
+import cr.ac.ucr.ecci.Server.HTTP_ServerController;
 
 public class Main {
 
