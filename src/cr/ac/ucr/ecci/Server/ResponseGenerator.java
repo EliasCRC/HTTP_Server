@@ -7,15 +7,31 @@ import java.util.Date;
 public class ResponseGenerator {
     //Response headers: Content-Type, Content-Length, Date, Server
 
-    public String generate404() {
+    public static String generate404() {
         String response = "HTTP/1.1 404 Not Found\n";
-        response += this.generateDate() + "\n";
+        response += generateDate() + "\n";
         response += "Content-Type: text/html; charset=UTF-8\n\n";
         response += "<html><head><title>Prueba</title></head><body>404</body></html>\n";
         return response;
     }
 
-    private String generateDate() {
+    public static String generate200() {
+        return "200";
+    }
+
+    public static String generateHEAD200() {
+        return "200 Head";
+    }
+
+    public static String generate501() {
+        return "501";
+    }
+
+    public static String generate406() {
+        return "406";
+    }
+
+    private static String generateDate() {
         DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
         Date date = new Date();
         return dateFormat.format(date);
