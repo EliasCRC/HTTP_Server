@@ -15,7 +15,7 @@ public class ResponseGenerator {
         return response;
     }
 
-    public static String generate200() {
+    public static String generate200(byte[] content) {
         return "200";
     }
 
