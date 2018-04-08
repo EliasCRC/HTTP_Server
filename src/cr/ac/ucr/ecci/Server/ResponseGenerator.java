@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class ResponseGenerator {
     //Response headers: Content-Type, Content-Length, Date, Server
-    static final String serverName = "ServidorWeb"
+    static final String serverName = "ServidorWeb";
 
     public static String generate404() {
         String response = "HTTP/1.1 404 Not Found\r\n";

@@ -1,12 +1,24 @@
 package cr.ac.ucr.ecci.Server.Output;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
 public class FileLoader {
 
     public static byte[] getFile (String filename) {
-        return null;
+        File file = new File(filename);
+
+        try {
+            return Files.readAllBytes(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static String getFileExtension(String filename) {
-        return null;
+        String[] splitFilename = filename.split("\\.");
+        return splitFilename[splitFilename.length - 1];
     }
 }
