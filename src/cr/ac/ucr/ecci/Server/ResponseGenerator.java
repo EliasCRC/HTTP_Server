@@ -23,7 +23,8 @@ public class ResponseGenerator {
         response +=  "Server: " + serverName + "\r\n";
         response += "Content-Length: " + content.length + "\r\n";
         response += "Content-Type: " + contentType + "\r\n\r\n";
-        response += content;
+        System.out.println("content: " + content);
+        response += contentString;
 
         return response;
     }
