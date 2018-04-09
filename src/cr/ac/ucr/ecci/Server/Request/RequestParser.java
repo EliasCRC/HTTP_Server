@@ -3,6 +3,7 @@ package cr.ac.ucr.ecci.Server.Request;
 public class RequestParser {
     private static String[] requestHeaders = {"Host", "Accept", "Date", "Content-Type", "Content-Length", "Referer"};
 
+    //TODO Mejorar la forma en que recibe los requests del browser
     public static Request parseRequest(String requestString) {
         String[] requestLines = requestString.split("\n");
         String methodType = requestLines[0].split(" ")[0];

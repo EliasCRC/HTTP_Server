@@ -56,7 +56,7 @@ public class HTTP_Connection extends Thread {
         final String POST = "POST";
         final String GET = "GET";
         final String HEAD = "HEAD";
-        byte[] response = new byte[1];
+        byte[] response;
         byte[] file;
 
         Request httpRequest = RequestParser.parseRequest(request);
@@ -74,7 +74,7 @@ public class HTTP_Connection extends Thread {
             } else {
                 String fileExtension = FileLoader.getFileExtension(httpRequest.requestedResource);
                 if (httpRequest.methodType.equals(POST)) {
-                    //response = ResponseGenerator.generate200(file, this.httpServer.getMimeType(fileExtension));
+                    response = ResponseGenerator.generate200(file, this.httpServer.getMimeType(fileExtension));
                 } else {
 
                     String mimeType = httpRequest.accept;
@@ -84,20 +84,20 @@ public class HTTP_Connection extends Thread {
                             (mimeTypeExtension != null && mimeTypeExtension.equals(fileExtension)) )) {
 
                         if (httpRequest.methodType.equals(HEAD)) {
-                            //response = ResponseGenerator.generateHEAD200(file, this.httpServer.getMimeType(fileExtension));
+                            response = ResponseGenerator.generateHEAD200(file, this.httpServer.getMimeType(fileExtension));
                         } else {
-                            //response = ResponseGenerator.generate200(file, this.httpServer.getMimeType(fileExtension));
+                            response = ResponseGenerator.generate200(file, this.httpServer.getMimeType(fileExtension));
                         }
 
                     } else {
-                        //response = ResponseGenerator.generate406();
+                        response = ResponseGenerator.generate406();
                     }
 
                 }
 
             }
         } else {
-            //response = ResponseGenerator.generate501();
+            response = ResponseGenerator.generate501();
         }
 
         return response;

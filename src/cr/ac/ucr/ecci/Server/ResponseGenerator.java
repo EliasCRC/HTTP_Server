@@ -12,8 +12,58 @@ public class ResponseGenerator {
     public static byte[] generate404() {
         String content = "<html><head><title>Error 404</title></head><body>404 Not Found</body></html>";
         byte[] contentBytes = content.getBytes(Charset.forName("UTF-8"));
+
         String responseHeaders = "HTTP/1.1 404 Not Found\r\n";
         responseHeaders += generateDate() + "\r\n";
+        responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n";
+        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n\r\n";
+        byte[] responseHeadersBytes = responseHeaders.getBytes(Charset.forName("UTF-8"));
+
+        return combineHeaderResponse(responseHeadersBytes, contentBytes);
+    }
+
+    public static byte[] generate200(byte[] contentBytes, String contentType) {
+        String responseHeaders = "HTTP/1.1 200 OK\r\n";
+        responseHeaders += generateDate() + "\r\n";
+        responseHeaders +=  "Server: " + serverName + "\r\n";
+        responseHeaders += "Content-Type: " + contentType + "\r\n";
+        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n\r\n";
+        byte[] responseHeadersBytes = responseHeaders.getBytes(Charset.forName("UTF-8"));
+
+        return combineHeaderResponse(responseHeadersBytes, contentBytes);
+    }
+
+    public static byte[] generateHEAD200(byte[] content, String contentType) {
+        String responseHeaders = "HTTP/1.1 200 OK\r\n";
+        responseHeaders += generateDate() + "\n";
+        responseHeaders += "Server: " + serverName + "\r\n";
+        responseHeaders += "Content-Type: " + contentType + "\r\n";
+        responseHeaders += "Content-Length: " + content.length + "\r\n\r\n";
+
+        return responseHeaders.getBytes(Charset.forName("UTF-8"));
+    }
+
+    public static byte[] generate501() {
+        String content = "<html><head><title>Error 501</title></head><body>501 Not Implemented</body></html>";
+        byte[] contentBytes = content.getBytes(Charset.forName("UTF-8"));
+
+        String responseHeaders = "HTTP/1.1 501 Not Implemented\r\n";
+        responseHeaders += generateDate() + "\n";
+        responseHeaders +=  "Server: " + serverName + "\r\n";
+        responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n";
+        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n\r\n";
+        byte[] responseHeadersBytes = responseHeaders.getBytes(Charset.forName("UTF-8"));
+
+        return combineHeaderResponse(responseHeadersBytes, contentBytes);
+    }
+
+    public static byte[] generate406() {
+        String content = "<html><head><title>Error 406</title></head><body>406 Not Acceptable</body></html>";
+        byte[] contentBytes = content.getBytes(Charset.forName("UTF-8"));
+
+        String responseHeaders = "HTTP/1.1 406 Not Acceptable\r\n";
+        responseHeaders += generateDate() + "\n";
+        responseHeaders +=  "Server: " + serverName + "\r\n";
         responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n";
         responseHeaders += "Content-Length: " + contentBytes.length + "\r\n\r\n";
         byte[] responseHeadersBytes = responseHeaders.getBytes(Charset.forName("UTF-8"));
@@ -28,49 +78,6 @@ public class ResponseGenerator {
         System.arraycopy(contentBytes,0,combined,responseHeadersBytes.length,contentBytes.length);
 
         return combined;
-    }
-
-    public static String generate200(byte[] content, String contentType) {
-        String contentString = new String(content);
-
-        String response = "HTTP/1.1 200 OK\r\n";
-        response += generateDate() + "\r\n";
-        response +=  "Server: " + serverName + "\r\n";
-        response += "Content-Length: " + content.length + "\r\n";
-        response += "Content-Type: " + contentType + "\r\n\r\n";
-        response += contentString;
-
-        return response;
-    }
-
-    public static String generateHEAD200(byte[] content, String contentType) {
-        String response = "HTTP/1.1 200 OK\r\n";
-        response += generateDate() + "\n";
-        response += "Server: " + serverName + "\r\n";
-        response += "Content-Length: " + content.length + "\r\n";
-        response += "Content-Type: " + contentType + "\r\n\r\n";
-
-        return response;
-    }
-
-    public static String generate501() {
-        String response = "HTTP/1.1 501 Not Implemented\r\n";
-        response += generateDate() + "\n";
-        response +=  "Server: " + serverName + "\r\n";
-        response += "Content-Type: text/html; charset=UTF-8\r\n\r\n";
-        response += "<html><head><title>Error 501</title></head><body>404 Not Implemented</body></html>";
-
-        return response;
-    }
-
-    public static String generate406() {
-        String response = "HTTP/1.1 406 Not Acceptable\r\n";
-        response += generateDate() + "\n";
-        response +=  "Server: " + serverName + "\r\n";
-        response += "Content-Type: text/html; charset=UTF-8\r\n\r\n";
-        response += "<html><head><title>Error 406</title></head><body>406 Not Acceptable</body></html>";
-
-        return response;
     }
   
     private static String generateDate() {
