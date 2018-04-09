@@ -65,6 +65,7 @@ public class HTTP_Connection extends Thread {
                 || httpRequest.methodType.equals(HEAD)) {
 
             file = FileLoader.getFile(httpRequest.requestedResource);
+            file = new byte[]{1};
 
             if (file == null) {
                 response = ResponseGenerator.generate404();
@@ -75,8 +76,11 @@ public class HTTP_Connection extends Thread {
                 } else {
 
                     String fileExtension = FileLoader.getFileExtension(httpRequest.requestedResource);
-                    String mimeTypeExtension = httpServer.getExtension(httpRequest.contentType);
-                    if(mimeTypeExtension != null && mimeTypeExtension.equals(fileExtension)) {
+                    String mimeType = httpRequest.accept;
+                    String mimeTypeExtension = httpServer.getExtension(mimeType);
+                    System.out.println(mimeType + " " + mimeTypeExtension);
+                    if( mimeType != null && (mimeType.equals("*/*") ||
+                            mimeTypeExtension.equals(fileExtension)) ) {
 
                         if (httpRequest.methodType.equals(HEAD)) {
                             response = ResponseGenerator.generateHEAD200();

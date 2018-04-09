@@ -7,6 +7,7 @@ public class FileLoader {
     }
 
     public static String getFileExtension(String filename) {
-        return null;
+        String[] splitFilename = filename.split("\\.");
+        return splitFilename[splitFilename.length - 1];
     }
 }

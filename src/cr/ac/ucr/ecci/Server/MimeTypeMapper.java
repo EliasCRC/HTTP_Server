@@ -30,6 +30,7 @@ public class MimeTypeMapper {
             Element mimeMapping = (Element) mimeMappings.item(i);
             this.mimeTypeMap.put(mimeMapping.getElementsByTagName("mime-type").item(0).getTextContent(), mimeMapping.getElementsByTagName("extension").item(0).getTextContent());
         }
+
     }
 
     public String getExtension(String mimeType) {
