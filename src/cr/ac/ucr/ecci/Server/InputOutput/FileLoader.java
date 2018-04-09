@@ -1,4 +1,4 @@
-package cr.ac.ucr.ecci.Server.Output;
+package cr.ac.ucr.ecci.Server.InputOutput;
 
 import java.io.File;
 import java.io.IOException;
