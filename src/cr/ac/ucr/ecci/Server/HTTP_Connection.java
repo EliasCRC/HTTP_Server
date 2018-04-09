@@ -14,7 +14,7 @@ public class HTTP_Connection extends Thread {
     private Socket clientSocket;
 
     private InputStream in;
-    private PrintWriter out;
+    private OutputStream out;
 
     HTTP_Connection (HTTP_Server httpServer, Socket clientSocket) {
         this.httpServer = httpServer;
@@ -25,7 +25,7 @@ public class HTTP_Connection extends Thread {
 
         // Get the readers
         this.in = this.clientSocket.getInputStream();
-        this.out = new PrintWriter(this.clientSocket.getOutputStream(), true);
+        this.out = this.clientSocket.getOutputStream();
         InputStreamReader isReader = new InputStreamReader(this.in);
         BufferedReader br = new BufferedReader(isReader);
 
@@ -44,59 +44,60 @@ public class HTTP_Connection extends Thread {
         System.out.println("Request received:");
         System.out.println(httpRequestString);
 
-        String response = this.handleRequest(httpRequestString.toString());
+        byte[] response = this.handleRequest(httpRequestString.toString());
         System.out.println("Response sent:");
-        System.out.println(response);
+        System.out.println(new String(response));
 
-        this.out.println(response);
+        this.out.write(response);
 
     }
 
-    private String handleRequest(String request) {
+    private byte[] handleRequest(String request) {
         final String POST = "POST";
         final String GET = "GET";
         final String HEAD = "HEAD";
-        String response;
+        byte[] response = new byte[1];
         byte[] file;
 
         Request httpRequest = RequestParser.parseRequest(request);
+        System.out.println("Parsed Request:");
+        httpRequest.print();
+        System.out.println();
 
         if (httpRequest.methodType.equals(POST) || httpRequest.methodType.equals(GET)
                 || httpRequest.methodType.equals(HEAD)) {
 
             file = FileLoader.getFile(httpRequest.requestedResource);
-            file = new byte[]{1};
 
             if (file == null) {
                 response = ResponseGenerator.generate404();
             } else {
-
+                String fileExtension = FileLoader.getFileExtension(httpRequest.requestedResource);
                 if (httpRequest.methodType.equals(POST)) {
-                    response = ResponseGenerator.generate200(file);
+                    //response = ResponseGenerator.generate200(file, this.httpServer.getMimeType(fileExtension));
                 } else {
 
-                    String fileExtension = FileLoader.getFileExtension(httpRequest.requestedResource);
                     String mimeType = httpRequest.accept;
                     String mimeTypeExtension = httpServer.getExtension(mimeType);
                     System.out.println(mimeType + " " + mimeTypeExtension);
                     if( mimeType != null && (mimeType.equals("*/*") ||
-                            mimeTypeExtension.equals(fileExtension)) ) {
+                            (mimeTypeExtension != null && mimeTypeExtension.equals(fileExtension)) )) {
 
                         if (httpRequest.methodType.equals(HEAD)) {
-                            response = ResponseGenerator.generateHEAD200();
+                            //response = ResponseGenerator.generateHEAD200(file, this.httpServer.getMimeType(fileExtension));
                         } else {
-                            response = ResponseGenerator.generate200(file);
+                            //response = ResponseGenerator.generate200(file, this.httpServer.getMimeType(fileExtension));
                         }
 
                     } else {
-                        response = ResponseGenerator.generate406();
+                        //response = ResponseGenerator.generate406();
                     }
 
                 }
 
             }
         } else {
-            response = ResponseGenerator.generate501();
+            //response = ResponseGenerator.generate501();
         }
 
         return response;
@@ -113,7 +114,11 @@ public class HTTP_Connection extends Thread {
         }
 
         if (this.out != null) {
-            this.out.close();
+            try {
+                this.out.close();
+            } catch (IOException e) {
+                //Do nothing
+            }
         }
 
         if (this.clientSocket != null) {

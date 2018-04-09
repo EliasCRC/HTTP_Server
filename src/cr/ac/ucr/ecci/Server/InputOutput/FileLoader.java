@@ -12,7 +12,6 @@ public class FileLoader {
         try {
             return Files.readAllBytes(file.toPath());
         } catch (IOException e) {
-            e.printStackTrace();
             return null;
         }
     }
