@@ -9,11 +9,12 @@ public class HTTP_Server extends Thread {
 
     private ServerSocket serverSocket;
     private boolean keepListening;
-//    private MimeTypeMapper mimeTypes;
+    private MimeTypeMapper mimeTypes;
     private ArrayList<HTTP_Connection> serverConnections;
 
     public HTTP_Server(int port) {
         this.serverConnections = new ArrayList<>();
+        this.mimeTypes = new MimeTypeMapper();
 
         try {
             this.serverSocket = new ServerSocket(port);
@@ -37,8 +38,12 @@ public class HTTP_Server extends Thread {
 
     }
 
-    public String getMimeTypeExt(String mimeType) {
-        return null;
+    public String getExtension(String mimeType) {
+        return this.mimeTypes.getExtension(mimeType);
+    }
+
+    public String getMimeType(String ext) {
+        return this.mimeTypes.getMimeType(ext);
     }
 
     synchronized void kill() {

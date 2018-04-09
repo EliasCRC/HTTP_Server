@@ -15,19 +15,19 @@ public class ResponseGenerator {
         return response;
     }
     public static String generate200(byte[] content) {
-        return "200";
+        return "200\n";
     }
 
     public static String generateHEAD200() {
-        return "200 Head";
+        return "200 Head\n";
     }
 
     public static String generate501() {
-        return "501";
+        return "501\n";
     }
 
     public static String generate406() {
-        return "406";
+        return "406\n";
     }
   
     private static String generateDate() {
