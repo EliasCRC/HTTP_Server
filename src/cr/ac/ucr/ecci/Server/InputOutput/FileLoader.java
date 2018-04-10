@@ -6,7 +6,6 @@ import java.nio.file.Files;
 
 public class FileLoader {
 
-    //TODO Hacer que haga esto pero para más tipo de media
     public static byte[] getFile (String filename) {
 
         File file = new File(filename);
