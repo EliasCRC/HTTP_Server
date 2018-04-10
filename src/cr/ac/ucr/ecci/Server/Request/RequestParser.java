@@ -10,7 +10,6 @@ public class RequestParser {
         String requestedResource = requestLines[0].split(" ")[1];
         requestedResource = requestedResource.equals("/") ? "index.html" : requestedResource.substring(1);
         String[] headers = getHeaders(requestLines);
-        headers[1] = headers[1].indexOf(',') != -1? headers[1].substring(0, headers[1].indexOf(',')) : headers[1];
         return new Request(methodType, headers[0], headers[1], headers[2], headers[3], headers[4] == null? 0 : Integer.parseInt(headers[4]), headers[5], requestedResource);
     }
 

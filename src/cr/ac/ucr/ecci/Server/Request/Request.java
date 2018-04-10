@@ -3,7 +3,7 @@ package cr.ac.ucr.ecci.Server.Request;
 public class Request {
     public String methodType;
     public String host;
-    public String accept;
+    private String accept;
     public String date;
     public String contentType;
     public int contentLength;
@@ -30,5 +30,20 @@ public class Request {
         System.out.println("Content Type: " + this.contentType);
         System.out.println("Content Length: " + this.contentLength);
         System.out.println("Referer: " + this.referer);
+    }
+
+    public String getAccept() {
+        if (this.accept != null) {
+            String acceptString = this.accept.replace(",", " ");
+            String[] accepts = acceptString.split(" ");
+            for (String accept : accepts) {
+                if (accept.contains("*/*")) {
+                    return("*/*");
+                }
+            }
+            return accepts[0];
+        } else {
+            return null;
+        }
     }
 }

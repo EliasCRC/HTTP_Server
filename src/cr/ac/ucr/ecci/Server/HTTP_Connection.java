@@ -78,7 +78,7 @@ public class HTTP_Connection extends Thread {
                     response = ResponseGenerator.generate200(file, this.httpServer.getMimeType(fileExtension));
                 } else {
 
-                    String mimeType = httpRequest.accept;
+                    String mimeType = httpRequest.getAccept();
                     String mimeTypeExtension = httpServer.getExtension(mimeType);
                     System.out.println(mimeType + " " + mimeTypeExtension);
                     if( mimeType != null && (mimeType.equals("*/*") ||
