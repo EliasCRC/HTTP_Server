@@ -13,7 +13,7 @@ public class HTTP_ServerController {
         HTTP_Server httpServer = new HTTP_Server(port);
         httpServer.start();
 
-        System.out.println("[Press Enter to Exit]");
+        System.out.println("[Press Double Enter to Exit]");
         try {
             System.in.read();
         } catch (IOException e) {

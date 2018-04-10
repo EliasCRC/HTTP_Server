@@ -9,8 +9,9 @@ public class Request {
     public int contentLength;
     public String referer;
     public String requestedResource;
+    public String body;
 
-    public Request(String methodType, String host, String accept, String date, String contentType, int contentLength, String referer, String requestedResource) {
+    Request(String methodType, String host, String accept, String date, String contentType, int contentLength, String referer, String requestedResource, String body) {
         this.methodType = methodType;
         this.host = host;
         this.accept = accept;
@@ -19,6 +20,7 @@ public class Request {
         this.requestedResource = requestedResource;
         this.contentLength = contentLength;
         this.referer = referer;
+        this.body = body;
     }
 
     public void print() {

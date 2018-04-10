@@ -1,0 +1,39 @@
+table {
+	margin: 4rem auto;
+	border: 1px solid black;
+	text-align: center;
+	font-family: Arial;
+}
+
+th {
+	border-bottom: 1px solid black;
+}
+
+td {
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+th:nth-child(1) {
+	width: 100px;
+}
+
+th:nth-child(2) {
+	width: 200px;
+}
+
+th:nth-child(3) {
+	width: 150px;
+}
+
+th:nth-child(4) {
+	width: 150px;
+}
+
+th:nth-child(5) {
+	width: 150px;
+}
+
+th:nth-child(6) {
+	min-width: 200px;
+}

@@ -41,12 +41,7 @@ public class HTTP_Connection extends Thread {
             httpRequestString.append((char) br.read());
         }
 
-        System.out.println("Request received:");
-        System.out.println(httpRequestString);
-
         byte[] response = this.handleRequest(httpRequestString.toString());
-        System.out.println("Response sent:");
-        System.out.println(new String(response));
 
         this.out.write(response);
 
@@ -60,10 +55,7 @@ public class HTTP_Connection extends Thread {
         byte[] file;
 
         Request httpRequest = RequestParser.parseRequest(request);
-        this.httpServer.writeToLog(httpRequest.methodType, ResponseGenerator.serverName, httpRequest.referer, "/" + httpRequest.requestedResource, "nada");
-        System.out.println("Parsed Request:");
-        httpRequest.print();
-        System.out.println();
+        this.httpServer.writeToLog(httpRequest.methodType, ResponseGenerator.serverName, httpRequest.referer, "/" + httpRequest.requestedResource, httpRequest.body);
 
         if (httpRequest.methodType.equals(POST) || httpRequest.methodType.equals(GET)
                 || httpRequest.methodType.equals(HEAD)) {
@@ -80,7 +72,6 @@ public class HTTP_Connection extends Thread {
 
                     String mimeType = httpRequest.getAccept();
                     String mimeTypeExtension = httpServer.getExtension(mimeType);
-                    System.out.println(mimeType + " " + mimeTypeExtension);
                     if( mimeType != null && (mimeType.equals("*/*") ||
                             (mimeTypeExtension != null && mimeTypeExtension.equals(fileExtension)) )) {
 

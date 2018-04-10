@@ -10,7 +10,13 @@ public class RequestParser {
         String requestedResource = requestLines[0].split(" ")[1];
         requestedResource = requestedResource.equals("/") ? "index.html" : requestedResource.substring(1);
         String[] headers = getHeaders(requestLines);
-        return new Request(methodType, headers[0], headers[1], headers[2], headers[3], headers[4] == null? 0 : Integer.parseInt(headers[4]), headers[5], requestedResource);
+        String body = "";
+
+        if (!isAcceptedHeader(requestLines[requestLines.length-1])) {
+            body = requestLines[requestLines.length-1];
+        }
+
+        return new Request(methodType, headers[0], headers[1], headers[2], headers[3], headers[4] == null? 0 : Integer.parseInt(headers[4]), headers[5], requestedResource, body);
     }
 
     private static String getHeader(String headerName, String requestLines[]) {
@@ -29,5 +35,12 @@ public class RequestParser {
             headers[i] = getHeader(requestHeaders[i], requestLines);
         }
         return headers;
+    }
+
+    private static boolean isAcceptedHeader(String lastRequestLine) {
+        return lastRequestLine.contains("Host") || lastRequestLine.contains("Accept") ||
+                lastRequestLine.contains("Date") || lastRequestLine.contains("Content-Type")
+                || lastRequestLine.contains("Content-Length") || lastRequestLine.contains("Referer");
+
     }
 }

@@ -20,10 +20,11 @@ public class Logger {
                 "<html>\n" +
                 "<head>\n" +
                 "<meta charset=\"utf-8\">\n" +
-                "<link rel=\"stylesheet\" href=\"style.css\">\n" +
+                "<link rel=\"stylesheet\" href=\"styles.css\">\n" +
                 "<title></title>\n" +
                 "</head>\n" +
                 "<body>\n" +
+                "<h1>Bitácora del servidor HTTP</h1>\n" +
                 "<table>\n" +
                 "<thead>\n" +
                 "<th>Método</th>\n" +
