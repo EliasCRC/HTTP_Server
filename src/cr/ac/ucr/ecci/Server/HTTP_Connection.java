@@ -60,6 +60,7 @@ public class HTTP_Connection extends Thread {
         byte[] file;
 
         Request httpRequest = RequestParser.parseRequest(request);
+        this.httpServer.writeToLog(httpRequest.methodType, ResponseGenerator.serverName, httpRequest.referer, "/" + httpRequest.requestedResource, "nada");
         System.out.println("Parsed Request:");
         httpRequest.print();
         System.out.println();

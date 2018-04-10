@@ -1,5 +1,7 @@
 package cr.ac.ucr.ecci.Server;
 
+import cr.ac.ucr.ecci.Server.InputOutput.Logger;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -11,10 +13,12 @@ public class HTTP_Server extends Thread {
     private boolean keepListening;
     private MimeTypeMapper mimeTypes;
     private ArrayList<HTTP_Connection> serverConnections;
+    private Logger logger;
 
     public HTTP_Server(int port) {
         this.serverConnections = new ArrayList<>();
         this.mimeTypes = new MimeTypeMapper();
+        this.logger = new Logger();
 
         try {
             this.serverSocket = new ServerSocket(port);
@@ -46,7 +50,13 @@ public class HTTP_Server extends Thread {
         return this.mimeTypes.getMimeType(ext);
     }
 
+    synchronized void writeToLog (String method, String server, String referee, String url, String data) {
+        this.logger.registerRequest(method, server, referee, url, data);
+    }
+
     synchronized void kill() {
+
+        this.logger.close();
 
         for (HTTP_Connection connection : this.serverConnections) {
             if (!connection.closed) {
