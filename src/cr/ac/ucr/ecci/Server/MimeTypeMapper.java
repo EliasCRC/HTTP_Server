@@ -10,10 +10,17 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.HashMap;
 
+/**
+ * Used to map extensions to a mimetype and mimetypes to an extension
+ */
 public class MimeTypeMapper {
     private Document mimeTypesXML;
     private HashMap<String, String> mimeTypeMap;
 
+    /**
+     * Constructor of MimeTypeMapper uses MimeTypes.xml to do the mapping, the file was obtained from:
+     * https://gist.github.com/IsmailMarmoush/7915310
+     */
     MimeTypeMapper() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         this.mimeTypeMap = new HashMap<>();
@@ -33,10 +40,20 @@ public class MimeTypeMapper {
 
     }
 
+    /**
+     * Gets the extension of a mime type
+     * @param mimeType The mime type that we need to know the extension
+     * @return The extension for that mime type
+     */
     public String getExtension(String mimeType) {
         return this.mimeTypeMap.get(mimeType);
     }
 
+    /**
+     * Gets the mime type from an extension name
+     * @param extension the extension that we need to know the mimetype
+     * @return The extension for that mime type, null if there is no extension for that mime type
+     */
     public String getMimeType(String extension) {
         for (String st : this.mimeTypeMap.keySet()) {
             if (this.mimeTypeMap.get(st).equals(extension)) {
