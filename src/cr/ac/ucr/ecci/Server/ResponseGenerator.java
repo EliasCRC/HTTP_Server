@@ -15,8 +15,8 @@ public class ResponseGenerator {
 
         String responseHeaders = "HTTP/1.1 404 Not Found\r\n";
         responseHeaders += generateDate() + "\r\n";
-        responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n";
-        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n\r\n";
+        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n";
+        responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n\r\n";
         byte[] responseHeadersBytes = responseHeaders.getBytes(Charset.forName("UTF-8"));
 
         return combineHeaderResponse(responseHeadersBytes, contentBytes);
@@ -25,9 +25,9 @@ public class ResponseGenerator {
     public static byte[] generate200(byte[] contentBytes, String contentType) {
         String responseHeaders = "HTTP/1.1 200 OK\r\n";
         responseHeaders += generateDate() + "\r\n";
-        responseHeaders +=  "Server: " + serverName + "\r\n";
-        responseHeaders += "Content-Type: " + contentType + "\r\n";
-        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n\r\n";
+        responseHeaders += "Server: " + serverName + "\r\n";
+        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n";
+        responseHeaders += "Content-Type: " + contentType + "\r\n\r\n";
         byte[] responseHeadersBytes = responseHeaders.getBytes(Charset.forName("UTF-8"));
 
         return combineHeaderResponse(responseHeadersBytes, contentBytes);
@@ -35,10 +35,10 @@ public class ResponseGenerator {
 
     public static byte[] generateHEAD200(byte[] content, String contentType) {
         String responseHeaders = "HTTP/1.1 200 OK\r\n";
-        responseHeaders += generateDate() + "\n";
+        responseHeaders += generateDate() + "\r\n";
         responseHeaders += "Server: " + serverName + "\r\n";
-        responseHeaders += "Content-Type: " + contentType + "\r\n";
-        responseHeaders += "Content-Length: " + content.length + "\r\n\r\n";
+        responseHeaders += "Content-Length: " + content.length + "\r\n";
+        responseHeaders += "Content-Type: " + contentType + "\r\n\r\n";
 
         return responseHeaders.getBytes(Charset.forName("UTF-8"));
     }
@@ -48,10 +48,10 @@ public class ResponseGenerator {
         byte[] contentBytes = content.getBytes(Charset.forName("UTF-8"));
 
         String responseHeaders = "HTTP/1.1 501 Not Implemented\r\n";
-        responseHeaders += generateDate() + "\n";
-        responseHeaders +=  "Server: " + serverName + "\r\n";
-        responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n";
-        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n\r\n";
+        responseHeaders += generateDate() + "\r\n";
+        responseHeaders += "Server: " + serverName + "\r\n";
+        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n";
+        responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n\r\n";
         byte[] responseHeadersBytes = responseHeaders.getBytes(Charset.forName("UTF-8"));
 
         return combineHeaderResponse(responseHeadersBytes, contentBytes);
@@ -62,10 +62,10 @@ public class ResponseGenerator {
         byte[] contentBytes = content.getBytes(Charset.forName("UTF-8"));
 
         String responseHeaders = "HTTP/1.1 406 Not Acceptable\r\n";
-        responseHeaders += generateDate() + "\n";
-        responseHeaders +=  "Server: " + serverName + "\r\n";
-        responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n";
-        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n\r\n";
+        responseHeaders += generateDate() + "\r\n";
+        responseHeaders += "Server: " + serverName + "\r\n";
+        responseHeaders += "Content-Length: " + contentBytes.length + "\r\n";
+        responseHeaders += "Content-Type: text/html; charset=UTF-8\r\n\r\n";
         byte[] responseHeadersBytes = responseHeaders.getBytes(Charset.forName("UTF-8"));
 
         return combineHeaderResponse(responseHeadersBytes, contentBytes);
