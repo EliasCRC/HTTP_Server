@@ -3,6 +3,9 @@ package cr.ac.ucr.ecci.Server;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Class that controls the flow of the HTTP Server
+ */
 public class HTTP_ServerController {
 
     /**

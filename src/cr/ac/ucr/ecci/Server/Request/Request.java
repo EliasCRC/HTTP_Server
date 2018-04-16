@@ -39,20 +39,6 @@ public class Request {
     }
 
     /**
-     * Prints certain contents of the request, used for debugging
-     */
-    public void print() {
-        System.out.println("Method Type: " + this.methodType);
-        System.out.println("Requested resource: " + this.requestedResource);
-        System.out.println("Host: " + this.host);
-        System.out.println("Accept: " + this.accept);
-        System.out.println("Date: " + this.date);
-        System.out.println("Content Type: " + this.contentType);
-        System.out.println("Content Length: " + this.contentLength);
-        System.out.println("Referer: " + this.referer);
-    }
-
-    /**
      * Returns the most relevant type in the accept header
      * @return null if there is no accept header, all if it accepts all types, otherwise the first type accepted
      */

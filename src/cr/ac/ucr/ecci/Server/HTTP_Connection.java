@@ -47,6 +47,8 @@ public class HTTP_Connection extends Thread {
             httpRequestString.append(headerLine).append("\n");
         }
 
+        httpRequestString.append("\n"); // To follow the double line break format
+
         // Read the body of the request, if any
         while(br.ready()){
             httpRequestString.append((char) br.read());
@@ -70,7 +72,7 @@ public class HTTP_Connection extends Thread {
         byte[] response;
         byte[] file;
 
-        // Pase and log the request
+        // Parse and log the request
         Request httpRequest = RequestParser.parseRequest(request);
         this.httpServer.writeToLog(httpRequest.methodType, httpRequest.referer, "/" + httpRequest.requestedResource, httpRequest.body);
 

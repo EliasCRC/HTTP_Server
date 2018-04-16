@@ -36,12 +36,14 @@ public class Logger {
                 "<h1>Bitácora del servidor HTTP</h1>\n" +
                 "<table>\n" +
                 "<thead>\n" +
+                "<tr>\n" +
                 "<th>Método</th>\n" +
                 "<th>Estampilla de tiempo</th>\n" +
                 "<th>Servidor</th>\n" +
                 "<th>Refiere</th>\n" +
                 "<th>URL</th>\n" +
                 "<th>Datos</th>\n" +
+                "</tr>\n" +
                 "</thead>\n" +
                 "<tbody>");
     }

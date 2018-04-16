@@ -19,7 +19,7 @@ public class RequestParser {
         String[] headers = getHeaders(requestLines);
         String body = "";
 
-        if (!isAcceptedHeader(requestLines[requestLines.length-1])) {
+        if (hasBody(requestString)) {
             body = requestLines[requestLines.length-1];
         }
 
@@ -56,14 +56,12 @@ public class RequestParser {
     }
 
     /**
-     * Tells if the header in a request line is accepted
-     * @param lastRequestLine the request line to check if its header is accepted
-     * @return true if it is accepted, false otherwise
+     * Finds out if the request has a body
+     * @param requestString the request string to check if it has a body
+     * @return true if it has one, false if not
      */
-    private static boolean isAcceptedHeader(String lastRequestLine) {
-        return lastRequestLine.contains("Host") || lastRequestLine.contains("Accept") ||
-                lastRequestLine.contains("Date") || lastRequestLine.contains("Content-Type")
-                || lastRequestLine.contains("Content-Length") || lastRequestLine.contains("Referer");
-
+    private static boolean hasBody(String requestString) {
+        int indexOfDoubleBreak = requestString.indexOf("\n\n");
+        return requestString.length() > (indexOfDoubleBreak+2);
     }
 }

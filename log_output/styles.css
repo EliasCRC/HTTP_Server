@@ -1,17 +1,28 @@
+body {
+	font-family: Arial, serif;
+}
+
+h1 {
+	margin: 4rem auto 0 auto;
+	text-align: center;
+	background-color: #333;
+	width: 60%;
+	padding: 2rem 0;
+	color: white;
+}
+
 table {
 	margin: 4rem auto;
 	border: 1px solid black;
 	text-align: center;
-	font-family: Arial;
+	background-color: #333;
+	color: white;
+	border-collapse: collapse;
 }
 
-th {
-	border-bottom: 1px solid black;
-}
-
-td {
-	border-right: 1px solid black;
-	border-bottom: 1px solid black;
+th, td {
+	padding: 0.5rem 0;
+	border-bottom: 2px solid white;
 }
 
 th:nth-child(1) {
@@ -31,7 +42,7 @@ th:nth-child(4) {
 }
 
 th:nth-child(5) {
-	width: 150px;
+	width: 350px;
 }
 
 th:nth-child(6) {
