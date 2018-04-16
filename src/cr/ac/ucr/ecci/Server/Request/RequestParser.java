@@ -29,8 +29,8 @@ public class RequestParser {
     /**
      * Gets the content of a particular header from a request that is being parsed
      * @param headerName the name of the request header (example: Content-Type)
-     * @param requestLines
-     * @return
+     * @param requestLines the lines of the request
+     * @return the respective header if any.
      */
     private static String getHeader(String headerName, String requestLines[]) {
         for (String requestLine : requestLines) {

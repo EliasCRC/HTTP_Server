@@ -5,18 +5,22 @@ import cr.ac.ucr.ecci.Server.InputOutput.Logger;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
+/**
+ * Class in charge of listening the socket for requests and dispatching connections
+ */
 public class HTTP_Server extends Thread {
 
     private ServerSocket serverSocket;
     private boolean keepListening;
     private MimeTypeMapper mimeTypes;
-    private ArrayList<HTTP_Connection> serverConnections;
     private Logger logger;
 
+    /**
+     * Constructor of the class
+     * @param port the port to listen to
+     */
     public HTTP_Server(int port) {
-        this.serverConnections = new ArrayList<>();
         this.mimeTypes = new MimeTypeMapper();
         this.logger = new Logger();
 
@@ -28,6 +32,9 @@ public class HTTP_Server extends Thread {
 
     }
 
+    /**
+     * Listening cycle, every time a request comes, a connection is dispatched.
+     */
     private void listenConnections() {
 
         while (this.keepListening) {
@@ -42,28 +49,41 @@ public class HTTP_Server extends Thread {
 
     }
 
-    public String getExtension(String mimeType) {
+    /**
+     * Gets the file extension of a MimeType
+     * @param mimeType the mime type
+     * @return the associated extension
+     */
+    String getExtension(String mimeType) {
         return this.mimeTypes.getExtension(mimeType);
     }
 
-    public String getMimeType(String ext) {
+    /**
+     * Gets the MimeType of a file extension
+     * @param ext the file extension
+     * @return the associated mime type
+     */
+    String getMimeType(String ext) {
         return this.mimeTypes.getMimeType(ext);
     }
 
-    synchronized void writeToLog (String method, String server, String referee, String url, String data) {
-        this.logger.registerRequest(method, server, referee, url, data);
+    /**
+     * Method for connections to write to the log
+     * @param method the method of the HTTP request
+     * @param referer the name of the referer
+     * @param url the name of the url requested
+     * @param data the body of the request
+     */
+    synchronized void writeToLog(String method, String referer, String url, String data) {
+        this.logger.registerRequest(method, ResponseGenerator.serverName, referer, url, data);
     }
 
-    synchronized void kill() {
+    /**
+     * Indicates the server to stop listening to requests and close everything
+     */
+    synchronized void closeServer() {
 
         this.logger.close();
-
-        for (HTTP_Connection connection : this.serverConnections) {
-            if (!connection.closed) {
-                connection.kill();
-                connection.interrupt();
-            }
-        }
 
         this.keepListening = false;
         boolean closed = false;
@@ -78,6 +98,9 @@ public class HTTP_Server extends Thread {
 
     }
 
+    /**
+     * Run method for the thread
+     */
     @Override
     public void run(){
         this.keepListening = true;

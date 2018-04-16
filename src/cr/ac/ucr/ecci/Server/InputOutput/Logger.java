@@ -5,10 +5,19 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 
+/**
+ * Class in charge of registering the requests that the server receives
+ */
 public class Logger {
 
+    /**
+     * The print writer is linked to the log file and writes the lines to it.
+     */
     private PrintWriter log;
 
+    /**
+     * Constructor of the log, initializes the log and appends the first HTML lines
+     */
     public Logger () {
         try {
             this.log = new PrintWriter("log_output/log.html", "UTF-8");
@@ -37,6 +46,14 @@ public class Logger {
                 "<tbody>");
     }
 
+    /**
+     * Writes a request to the log
+     * @param method the method of the HTTP request
+     * @param server the name of the server
+     * @param referer the name of the referer
+     * @param url the name of the url requested
+     * @param data the body of the request
+     */
     public void registerRequest(String method, String server, String referer, String url, String data) {
         this.log.println("<tr>");
 
@@ -50,6 +67,9 @@ public class Logger {
         this.log.println("</tr>");
     }
 
+    /**
+     * Writes the last HTML lines and closes the log.
+     */
     public void close() {
         this.log.println("</tbody>\n" +
                 "</table>\n" +

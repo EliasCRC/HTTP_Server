@@ -13,7 +13,7 @@ import java.util.HashMap;
 /**
  * Used to map extensions to a mimetype and mimetypes to an extension
  */
-public class MimeTypeMapper {
+class MimeTypeMapper {
     private Document mimeTypesXML;
     private HashMap<String, String> mimeTypeMap;
 
@@ -45,7 +45,7 @@ public class MimeTypeMapper {
      * @param mimeType The mime type that we need to know the extension
      * @return The extension for that mime type
      */
-    public String getExtension(String mimeType) {
+    String getExtension(String mimeType) {
         return this.mimeTypeMap.get(mimeType);
     }
 
@@ -54,7 +54,7 @@ public class MimeTypeMapper {
      * @param extension the extension that we need to know the mimetype
      * @return The extension for that mime type, null if there is no extension for that mime type
      */
-    public String getMimeType(String extension) {
+    String getMimeType(String extension) {
         for (String st : this.mimeTypeMap.keySet()) {
             if (this.mimeTypeMap.get(st).equals(extension)) {
                 return st;

@@ -7,21 +7,32 @@ import cr.ac.ucr.ecci.Server.Request.RequestParser;
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * Class in charge of handling HTTP requests.
+ */
 public class HTTP_Connection extends Thread {
 
     private HTTP_Server httpServer;
-    public boolean closed;
     private Socket clientSocket;
 
     private InputStream in;
     private OutputStream out;
 
+    /**
+     * Constructor of the class
+     * @param httpServer the server that dispatched the connection
+     * @param clientSocket the connection socket with the client
+     */
     HTTP_Connection (HTTP_Server httpServer, Socket clientSocket) {
         this.httpServer = httpServer;
         this.clientSocket = clientSocket;
     }
 
-    private void listenMessages() throws IOException {
+    /**
+     * Listens to the socket and receives the HTTP request, once handled, responds to the client
+     * @throws IOException if the in and out readers cannot be recovered
+     */
+    private void manageRequest() throws IOException {
 
         // Get the readers
         this.in = this.clientSocket.getInputStream();
@@ -29,34 +40,41 @@ public class HTTP_Connection extends Thread {
         InputStreamReader isReader = new InputStreamReader(this.in);
         BufferedReader br = new BufferedReader(isReader);
 
-        //Read the headers of the request
+        // Read the headers of the request
         StringBuilder httpRequestString = new StringBuilder();
         String headerLine;
         while((headerLine = br.readLine()).length() != 0){
             httpRequestString.append(headerLine).append("\n");
         }
 
-        //Read the body of the request, if any
+        // Read the body of the request, if any
         while(br.ready()){
             httpRequestString.append((char) br.read());
         }
 
-        byte[] response = this.handleRequest(httpRequestString.toString());
-
+        // Respond to the request
+        byte[] response = this.handleRequestFlow(httpRequestString.toString());
         this.out.write(response);
 
     }
 
-    private byte[] handleRequest(String request) {
+    /**
+     * Handles the flow of a request, mostly checking for HTTP errors
+     * @param request the HTTP request
+     * @return the appropriate HTTP response
+     */
+    private byte[] handleRequestFlow (String request) {
         final String POST = "POST";
         final String GET = "GET";
         final String HEAD = "HEAD";
         byte[] response;
         byte[] file;
 
+        // Pase and log the request
         Request httpRequest = RequestParser.parseRequest(request);
-        this.httpServer.writeToLog(httpRequest.methodType, ResponseGenerator.serverName, httpRequest.referer, "/" + httpRequest.requestedResource, httpRequest.body);
+        this.httpServer.writeToLog(httpRequest.methodType, httpRequest.referer, "/" + httpRequest.requestedResource, httpRequest.body);
 
+        // Check if the method is recognizable
         if (httpRequest.methodType.equals(POST) || httpRequest.methodType.equals(GET)
                 || httpRequest.methodType.equals(HEAD)) {
 
@@ -65,13 +83,18 @@ public class HTTP_Connection extends Thread {
             if (file == null) {
                 response = ResponseGenerator.generate404();
             } else {
+
                 String fileExtension = FileLoader.getFileExtension(httpRequest.requestedResource);
+
+                // If the method is a POST and the resource exists, just return a 200
                 if (httpRequest.methodType.equals(POST)) {
                     response = ResponseGenerator.generate200(file, this.httpServer.getMimeType(fileExtension));
                 } else {
 
+                    // Gets the MimeTypes and the associated extension
                     String mimeType = httpRequest.getAccept();
                     String mimeTypeExtension = httpServer.getExtension(mimeType);
+                    // Check if the mime type accepts anything, if not check if the file extension and mime type extension match.
                     if( mimeType != null && (mimeType.equals("*/*") ||
                             (mimeTypeExtension != null && mimeTypeExtension.equals(fileExtension)) )) {
 
@@ -95,7 +118,10 @@ public class HTTP_Connection extends Thread {
         return response;
     }
 
-    synchronized void kill() {
+    /**
+     * If the connection closes, close everything
+     */
+    private void close() {
 
         if (this.in != null) {
             try {
@@ -121,20 +147,21 @@ public class HTTP_Connection extends Thread {
             }
         }
 
-        this.closed = true;
-
     }
 
+    /**
+     * Run method for the thread
+     */
     @Override
     public void run() {
 
         try {
-            this.listenMessages();
+            this.manageRequest();
         } catch (IOException e) {
             //Do Nothing
         }
 
-        this.kill();
+        this.close();
     }
 
 
