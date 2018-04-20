@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
+import java.util.Scanner;
 
 /**
  * Class in charge of registering the requests that the server receives
@@ -19,8 +20,11 @@ public class Logger {
      * Constructor of the log, initializes the log and appends the first HTML lines
      */
     public Logger () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the name for the log output file: ");
+        String filename = scanner.nextLine();
         try {
-            this.log = new PrintWriter("log_output/log.html", "UTF-8");
+            this.log = new PrintWriter("log_output/" + filename +".html", "UTF-8");
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
             System.err.println("Error opening the log file.");
         }
